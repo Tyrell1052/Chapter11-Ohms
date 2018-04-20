@@ -52,7 +52,7 @@ while(strloop == "Y"):
     if(strask == "1"):
         print("Current")
         # calculate voltage
-
+        user_input = float(input("Enter Voltage"))
         Ol.set_voltage(float(input("Enter voltage")))
         Ol.set_resistance(float(input("Enter resistance")))
         Ol.calc_current()

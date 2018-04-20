@@ -1,6 +1,6 @@
 # Ohm’s Law Class                        Tyrell Robbins                           4/18/18
 
-class OhmsLaw:
+class OhmsLaw():
     def __init__(self):
         #data members
         self.current = 0.0
@@ -9,13 +9,13 @@ class OhmsLaw:
 
     #accessor methods
     #sets
-    def set_current(self,c):
+    def set_current(self, c):
         self.current = c
 
     def set_resistance(self,r):
         self.resistance = r
 
-    def set_voltage(self,v):
+    def set_voltage(self, v):
         self.voltage = v
 
     #gets
@@ -40,7 +40,7 @@ class OhmsLaw:
 
 
 #main()
-Ol = OhmsLaw
+Ol = OhmsLaw()
 strloop = "Y"
 while(strloop == "Y"):
     print("1. find Current 2. find Resistance 3. find Voltage 4. quit")
@@ -52,21 +52,34 @@ while(strloop == "Y"):
     if(strask == "1"):
         print("Current")
         # calculate voltage
-        user_input = float(input("Enter Voltage"))
-        Ol.set_voltage(float(input("Enter voltage")))
-        Ol.set_resistance(float(input("Enter resistance")))
+        v = float(input("Enter Voltage"))
+        r = float(input("Enter Resistance"))
+        Ol.set_voltage(v)
+        Ol.set_resistance(r)
         Ol.calc_current()
         print("The Current is",format(Ol.get_current(),'.2f'))
-
+        strask = 0
     elif(strask == "2"):
         print("Resistance")
         # calculate current
-
+        v = float(input("Enter Voltage"))
+        c = float(input("Enter Current"))
+        Ol.set_voltage(v)
+        Ol.set_current(c)
+        Ol.calc_resistance()
+        print("The Current is", format(Ol.get_resistance(), '.2f'))
+        strask = 0
 
     elif(strask == "3"):
         print("Voltage")
         #calculate resistance
-
+        c = float(input("Enter Current"))
+        r = float(input("Enter Resistance"))
+        Ol.set_current(c)
+        Ol.set_resistance(r)
+        Ol.calc_voltage()
+        print("The Current is", format(Ol.get_current(), '.2f'))
+        strask = 0
 
     elif(strask == "4"):
         strloop = "x"
